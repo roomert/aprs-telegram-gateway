@@ -4,7 +4,7 @@ APRS Telegram Gateway links the APRS i-Gate servers to a Telegram chatbot and al
 Installation is simple:
 
 Download the executable for your system to its own folder
-- Use either git clone or copy/paste the contents of config.cfg to a fresh config.cfg file
+- Use either git clone or copy/paste the contents of config.example.cfg to a fresh config.cfg file
 - Put your data in the config as needed, such as bot token and your LAT, LON, callsign, APRS passcode and custom message
       - NOTE: The bot WILL NOT WORK without those fields being filled with the correct information
 - If you want the bot to be live on the APRS network, make sure to edit the config so the built in dummy server never runs
