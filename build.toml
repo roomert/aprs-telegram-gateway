@@ -1,0 +1,62 @@
+# =====================================================================
+#  build.toml - the ONE file you edit to control the build.
+#  build.sh (Linux / Pi) and build.ps1 (Windows) both read this file.
+#  Paths are relative to this folder. Use forward slashes (/) everywhere,
+#  they work on Windows too.
+# =====================================================================
+
+[app]
+# Base name of the executable. The platform label is added automatically,
+# e.g. aprs-tg-bot-windows-x64.exe, aprs-tg-bot-linux-aarch64
+name = "aprs-tg-bot"
+
+# The script that starts your program.
+entry = "main.py"
+
+# true  = console app (shows logs in a terminal) - right for a bot/daemon
+# false = no console window on Windows
+console = true
+
+# Optional icon (.ico for Windows). Leave "" for none.
+icon = ""
+
+[sources]
+# Your other .py files / packages that the entry script imports.
+# PyInstaller follows normal "import x" statements automatically, but
+# listing them here guarantees they get bundled, including ones that are
+# loaded dynamically (importlib, plugins, etc.).
+#   - a file  "aprs_client.py"   -> bundled as module aprs_client
+#   - a folder "backends"        -> bundled as package backends (needs __init__.py)
+files = [
+    "settings.py",
+    "notify.py",
+    "registration.py",
+    "aprs_client.py",
+    "commands",
+    "sessions.py",
+]
+
+# Extra folders to search when resolving imports (e.g. a "src" folder).
+search_paths = [
+    # "src",
+]
+
+# Modules from installed libraries that PyInstaller misses.
+hidden_imports = [
+    # "telegram.ext",
+]
+
+[data]
+# Non-Python files to pack inside the executable.
+# Format: "source path" = "folder inside the bundle"  ("." = top level)
+# At runtime, find them via sys._MEIPASS (see BUILDING.md).
+# "aliases.example.json" = "."
+# "assets" = "assets"
+
+[dependencies]
+# Runtime libraries your code needs (pip names). Installed into .venv
+# before building so they get bundled.
+packages = [
+     "aprslib",
+     "python-telegram-bot>=21",
+]
