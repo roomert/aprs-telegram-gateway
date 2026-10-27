@@ -80,7 +80,7 @@ class APRSClient:
         time.sleep(30)
         while self.running:
             if self.sock is not None:
-                packet = f"{settings.GATEWAY}>{TOCALL},TCPIP*:!{settings.BEACON_LAT}/{settings.BEACON_LON}&{settings.BEACON_COMMENT}"
+                packet = f"{settings.GATEWAY}>{TOCALL},TCPIP*:!{settings.BEACON_LAT}{settings.BEACON_SYMBOL_TABLE}{settings.BEACON_LON}{settings.BEACON_SYMBOL}{settings.BEACON_COMMENT}"
                 self._send(packet)
             time.sleep(settings.BEACON_MINUTES * 60)
 

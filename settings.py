@@ -23,6 +23,8 @@ APRS_PASSCODE = cfg.get("aprs", "passcode", fallback="-1")
 GATEWAY       = cfg.get("aprs", "gateway_name", fallback="ZLTG").upper()  # name people message
 APRS_SERVER   = cfg.get("aprs", "server", fallback="127.0.0.1")
 APRS_PORT     = cfg.getint("aprs", "port", fallback=14580)
+BEACON_SYMBOL_TABLE = cfg.get("aprs", "beacon_symbol_table", fallback="/")
+BEACON_SYMBOL = cfg.get("aprs", "beacon_symbol", fallback="&")
 # Safety switch: refuses to connect anywhere except this computer unless set to yes
 ALLOW_LIVE    = cfg.getboolean("aprs", "allow_live", fallback=False)
 BEACON_LAT     = cfg.get("aprs", "beacon_lat", fallback="")
